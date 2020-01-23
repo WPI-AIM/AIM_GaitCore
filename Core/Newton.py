@@ -1,4 +1,4 @@
-class Newton():
+class Newton(object):
 
     def __init__(self, angle, force, moment, power):
         self._angle = angle

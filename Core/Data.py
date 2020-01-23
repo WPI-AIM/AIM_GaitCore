@@ -1,4 +1,4 @@
-class Data():
+class Data(object):
 
     def __init__(self,data, time):
         self._data = data
