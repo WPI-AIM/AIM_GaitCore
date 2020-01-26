@@ -34,18 +34,18 @@ class Joint(object):
         return self._moment
 
     @angle.setter
-    def angle(self):
-        return self._angle
+    def angle(self, value):
+        self._angle = value
 
     @power.setter
-    def power(self):
-        return self._power
+    def power(self, value):
+        self._power = value
 
     @force.setter
-    def force(self):
-        return self._force
+    def force(self, value):
+        self._force = value
 
     @moment.setter
-    def moment(self):
-        return self._moment
+    def moment(self, value ):
+        self._moment = value
 
