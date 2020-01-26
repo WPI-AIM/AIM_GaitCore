@@ -1,4 +1,5 @@
-class Leg():
+
+class Leg(object):
 
     def __init__(self, hip, knee, ankle):
 
