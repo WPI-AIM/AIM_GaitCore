@@ -19,25 +19,31 @@ class Point(object):
     def z(self):
         return self._z
 
-    @x.setter
-    def x(self, value):
-        self._x = value
-
-    @y.setter
-    def y(self, value):
-        self._y = value
-
-    @z.setter
-    def z(self, value):
-        self._z = value
+    # @x.setter
+    # def x(self, value):
+    #     self._x = value
+    #
+    # @y.setter
+    # def y(self, value):
+    #     self._y = value
+    #
+    # @z.setter
+    # def z(self, value):
+    #     self._z = value
 
     def __add__(self, other):
+        """
+        over ride to add points
+        """
         x = self.x + other.x
         y = self.y + other.y
         z = self.z + other.z
         return Point(x, y, z)
 
     def __sub__(self, other):
+        """
+        over ride to subtact points
+        """
         x = self.x - other.x
         y = self.y - other.y
         z = self.z - other.z
@@ -45,6 +51,9 @@ class Point(object):
         return Point(x, y, z)
 
     def __mul__(self, other):
+        """
+        over ride to mul points
+        """
         x = other * self.x
         y = other * self.y
         z = other * self.z

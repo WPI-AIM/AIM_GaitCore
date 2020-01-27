@@ -22,18 +22,18 @@ class Newton(object):
     def power(self):
         return self._power
 
-    @angle.setter
-    def angle(self, value):
-        self._angle = value
-
-    @force.setter
-    def force(self, value):
-        self._force = value
-
-    @moment.setter
-    def moment(self, value):
-        self._moment = value
-
-    @power.setter
-    def power(self, value):
-        self._power = value
+    # @angle.setter
+    # def angle(self, value):
+    #     self._angle = value
+    #
+    # @force.setter
+    # def force(self, value):
+    #     self._force = value
+    #
+    # @moment.setter
+    # def moment(self, value):
+    #     self._moment = value
+    #
+    # @power.setter
+    # def power(self, value):
+    #     self._power = value
