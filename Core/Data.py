@@ -2,7 +2,7 @@
 # //==============================================================================
 # /*
 #     Software License Agreement (BSD License)
-#     Copyright (c) 2019, AMBF
+#     Copyright (c) 2020, AIMGaitCore
 #     (www.aimlab.wpi.edu)
 
 #     All rights reserved.
