@@ -65,17 +65,17 @@ class Point(object):
     def z(self):
         return self._z
 
-    # @x.setter
-    # def x(self, value):
-    #     self._x = value
-    #
-    # @y.setter
-    # def y(self, value):
-    #     self._y = value
-    #
-    # @z.setter
-    # def z(self, value):
-    #     self._z = value
+    @x.setter
+    def x(self, value):
+        self._x = value
+
+    @y.setter
+    def y(self, value):
+        self._y = value
+
+    @z.setter
+    def z(self, value):
+        self._z = value
 
     def __add__(self, other):
         """
