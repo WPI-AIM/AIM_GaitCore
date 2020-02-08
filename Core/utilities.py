@@ -61,5 +61,5 @@ def smooth(y, box_pts=10):
     smooth data using a running average
     """
     box = np.ones(box_pts)/box_pts
-    y_smooth = np.convolve(y, box, mode='same')
+    y_smooth = np.convolve(y, box, mode='valid')
     return y_smooth
