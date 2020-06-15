@@ -113,3 +113,13 @@ class Point(object):
 
     def toarray(self):
         return np.array((self.x, self.y, self.z)).reshape((-1,1))
+
+
+def point_to_vector(point):
+    """Returns a vectorized representation of a Point object. The vector is of the form [[x], [y], [z]]"""
+    return [[point.x], [point.y], [point.z]]
+
+
+def vector_to_point(vector):
+    """Returns a Point object from its vector representation."""
+    return Point(vector[0][0], vector[1][0], vector[2][0])
