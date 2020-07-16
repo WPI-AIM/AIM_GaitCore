@@ -115,11 +115,20 @@ class Point(object):
         return np.array((self.x, self.y, self.z)).reshape((-1,1))
 
 
+def distance(point1, point2):
+    """
+    get the distance between two points
+    """
+    return np.sqrt(np.sum(np.power((point1 - point2).toarray(), 2)))
+
 def point_to_vector(point):
     """Returns a vectorized representation of a Point object. The vector is of the form [[x], [y], [z]]"""
     return [[point.x], [point.y], [point.z]]
 
-
 def vector_to_point(vector):
     """Returns a Point object from its vector representation."""
     return Point(vector[0][0], vector[1][0], vector[2][0])
+
+
+
+
