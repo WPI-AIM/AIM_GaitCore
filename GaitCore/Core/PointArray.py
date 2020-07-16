@@ -39,6 +39,8 @@
 #     \author    <http://www.aimlab.wpi.edu>
 #     \author    <ajlewis@wpi.edu>
 #     \author    Alek Lewis
+#     \author    <nagoldfarb@wpi.edu>
+#     \author    Nathaniel Goldfarb
 #     \version   0.1
 # */
 # //==============================================================================
@@ -77,7 +79,7 @@ class PointArray(object):
     def z(self, value):
         self._z = value
 
-    def point_of_ind(self, ind):
+    def get(self, ind):
         return Point.Point(self.x[ind], self.y[ind], self.z[ind])
 
     def __add__(self, other):
