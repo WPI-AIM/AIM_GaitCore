@@ -47,6 +47,7 @@
 
 
 import GaitCore.Core.Point as Point
+import numpy as np
 
 class PointArray(object):
 
@@ -81,6 +82,12 @@ class PointArray(object):
 
     def get(self, ind):
         return Point.Point(self.x[ind], self.y[ind], self.z[ind])
+
+    def toarray(self):
+        """
+        get an numpy as array
+        """
+        return a = np.array([self.x,self.y,self.z])
 
     def __add__(self, other):
         """
