@@ -87,7 +87,7 @@ class PointArray(object):
         """
         get an numpy as array
         """
-        return a = np.array([self.x,self.y,self.z])
+        return np.array([self.x,self.y,self.z])
 
     def __add__(self, other):
         """
