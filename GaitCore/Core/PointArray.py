@@ -37,6 +37,8 @@
 #     POSSIBILITY OF SUCH DAMAGE.
 
 #     \author    <http://www.aimlab.wpi.edu>
+#     \author    <ajlewis@wpi.edu>
+#     \author    Alek Lewis
 #     \author    <nagoldfarb@wpi.edu>
 #     \author    Nathaniel Goldfarb
 #     \version   0.1
@@ -44,9 +46,10 @@
 # //==============================================================================
 
 
+import GaitCore.Core.Point as Point
 import numpy as np
 
-class Point(object):
+class PointArray(object):
 
     def __init__(self,x,y,z):
         self._x = x
@@ -77,58 +80,71 @@ class Point(object):
     def z(self, value):
         self._z = value
 
+    def get(self, ind):
+        return Point.Point(self.x[ind], self.y[ind], self.z[ind])
+
+    def toarray(self):
+        """
+        get an numpy as array
+        """
+        return np.array([self.x,self.y,self.z])
+
     def __add__(self, other):
         """
         over ride to add points
         """
-        x = self.x + other.x
-        y = self.y + other.y
-        z = self.z + other.z
-        return Point(x, y, z)
+        x = []
+        for i in range(len(self.x)):
+            x.append(self.x + other.x)
+
+        y = []
+        for i in range(len(self.y)):
+            x.append(self.y + other.y)
+
+        z = []
+        for i in range(len(self.z)):
+            x.append(self.z + other.z)
+
+        return PointArray(x, y, z)
 
     def __sub__(self, other):
         """
         over ride to subtact points
         """
-        x = self.x - other.x
-        y = self.y - other.y
-        z = self.z - other.z
+        x = []
+        for i in range(len(self.x)):
+            x.append(self.x - other.x)
 
-        return Point(x, y, z)
+        y = []
+        for i in range(len(self.y)):
+            x.append(self.y - other.y)
+
+        z = []
+        for i in range(len(self.z)):
+            x.append(self.z - other.z)
+
+        return PointArray(x, y, z)
 
     def __mul__(self, other):
         """
         over ride to mul points
         """
-        x = other * self.x
-        y = other * self.y
-        z = other * self.z
-        return Point(x, y, z)
+        x = []
+        for i in range(len(self.x)):
+            x.append(self.x * other.x)
+
+        y = []
+        for i in range(len(self.y)):
+            x.append(self.y * other.y)
+
+        z = []
+        for i in range(len(self.z)):
+            x.append(self.z * other.z)
+
+        return PointArray(x, y, z)
 
     def __rmul__(self, other):
-       return self.__mul__(other)
+        return self.__mul__(other)
 
     def __str__(self):
         return " X: " + str(self.x) + " Y: " + str(self.y) + " Z: " + str(self.z)
-
-    def toarray(self):
-        return np.array((self.x, self.y, self.z)).reshape((-1,1))
-
-
-def distance(point1, point2):
-    """
-    get the distance between two points
-    """
-    return np.sqrt(np.sum(np.power((point1 - point2).toarray(), 2)))
-
-def point_to_vector(point):
-    """Returns a vectorized representation of a Point object. The vector is of the form [[x], [y], [z]]"""
-    return [[point.x], [point.y], [point.z]]
-
-def vector_to_point(vector):
-    """Returns a Point object from its vector representation."""
-    return Point(vector[0][0], vector[1][0], vector[2][0])
-
-
-
-
