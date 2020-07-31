@@ -87,7 +87,7 @@ class PointArray(object):
         """
         get an numpy as array
         """
-        return a = np.array([self.x,self.y,self.z])
+        return np.array([self.x,self.y,self.z])
 
     def __add__(self, other):
         """
@@ -148,3 +148,9 @@ class PointArray(object):
 
     def __str__(self):
         return " X: " + str(self.x) + " Y: " + str(self.y) + " Z: " + str(self.z)
+
+    def __getitem__(self, item):
+
+        if isinstance(item, slice):
+            return PointArray(self.x[item], self.y[item], self.z[item])
+        return Point.Point(self.x[item], self.y[item], self.z[item])
