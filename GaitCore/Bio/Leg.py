@@ -82,14 +82,14 @@ class Leg(object):
         """
         return self._ankle
 
-    # @hip.setter
-    # def hip(self, value):
-    #     self._hip = value
-    #
-    # @knee.setter
-    # def knee(self, value):
-    #     self._knee = value
-    #
-    # @knee.setter
-    # def ankle(self, value):
-    #     self._ankle = value
+    @hip.setter
+    def hip(self, value):
+        self._hip = value
+
+    @knee.setter
+    def knee(self, value):
+        self._knee = value
+
+    @knee.setter
+    def ankle(self, value):
+        self._ankle = value
