@@ -154,3 +154,18 @@ class PointArray(object):
         if isinstance(item, slice):
             return PointArray(self.x[item], self.y[item], self.z[item])
         return Point.Point(self.x[item], self.y[item], self.z[item])
+
+    def __len__(self):
+        return len(self._x)
+
+    def __iter__(self):
+        self.n = 0
+        return self
+
+    def __next__(self):
+        if self.n < self.__len__():
+            point = self.get(self.n)
+            self.n += 1
+            return point
+        else:
+            raise StopIteration
