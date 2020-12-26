@@ -43,53 +43,61 @@
 # */
 # //==============================================================================
 
-
-
-
-
-class Leg(object):
+class Trunk(object):
     """
     Hold the joints of a leg
     """
-    def __init__(self, hip, knee, ankle):
+    def __init__(self, head, spine, thorax, plevis):
         """
-        :param hip: hip joint
-        :param knee: knee joint
-        :param ankle: ankle joint
+        :param head: head joint
+        :param spine: spine joint
+        :param thorax: thorax joint
         """
-        self._hip = hip
-        self._knee = knee
-        self._ankle = ankle
+        self._head = head
+        self._spine = spine
+        self._thorax = thorax
+        self._plevis = plevis
 
     @property
-    def hip(self):
+    def head(self):
         """
-        Get the hip joint
+        Get the head joint
         """
-        return self._hip
+        return self._head
 
     @property
-    def knee(self):
+    def spine(self):
         """
-        get the knee joint
+        get the spine joint
         """
-        return self._knee
+        return self._spine
 
     @property
-    def ankle(self):
+    def thorax(self):
         """
-        Get the ankle joint
+        Get the thorax joint
         """
-        return self._ankle
+        return self._thorax
 
-    @hip.setter
-    def hip(self, value):
-        self._hip = value
+    @property
+    def plevis(self):
+        """
+        Get the plevis joint
+        """
+        return self._plevis
 
-    @knee.setter
-    def knee(self, value):
-        self._knee = value
+    @head.setter
+    def head(self, value):
+        self._head = value
 
-    @ankle.setter
-    def ankle(self, value):
-        self._ankle = value
+    @spine.setter
+    def spine(self, value):
+        self._spine = value
+
+    @thorax.setter
+    def thorax(self, value):
+        self._thorax = value
+
+    @plevis.setter
+    def plevis(self, value):
+        self._plevis = value

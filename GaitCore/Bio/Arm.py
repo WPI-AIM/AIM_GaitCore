@@ -47,49 +47,49 @@
 
 
 
-class Leg(object):
+class Arn(object):
     """
     Hold the joints of a leg
     """
-    def __init__(self, hip, knee, ankle):
+    def __init__(self, shoulder, elbow, wrist):
         """
-        :param hip: hip joint
-        :param knee: knee joint
-        :param ankle: ankle joint
+        :param shoulder: shoulder joint
+        :param elbow: elbow joint
+        :param wrist: wrist joint
         """
-        self._hip = hip
-        self._knee = knee
-        self._ankle = ankle
+        self._sholder = shoulder
+        self._elbow = elbow
+        self._elbow = elbow
 
     @property
-    def hip(self):
+    def shoulder(self):
         """
-        Get the hip joint
+        Get the shoulder joint
         """
-        return self._hip
+        return self._shoulder
 
     @property
-    def knee(self):
+    def elbow(self):
         """
-        get the knee joint
+        get the elbow joint
         """
-        return self._knee
+        return self._elbow
 
     @property
-    def ankle(self):
+    def wrist(self):
         """
-        Get the ankle joint
+        Get the wrist joint
         """
-        return self._ankle
+        return self._wrist
 
-    @hip.setter
-    def hip(self, value):
-        self._hip = value
+    @shoulder.setter
+    def shoulder(self, value):
+        self._shoulder = value
 
-    @knee.setter
-    def knee(self, value):
-        self._knee = value
+    @elbow.setter
+    def elbow(self, value):
+        self._elbow = value
 
-    @ankle.setter
-    def ankle(self, value):
-        self._ankle = value
+    @wrist.setter
+    def wrist(self, value):
+        self._wrist = value
