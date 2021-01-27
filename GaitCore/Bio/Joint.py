@@ -43,14 +43,14 @@
 # */
 # //==============================================================================
 
-
+from GaitCore.Core.Angle import Angle
 
 
 class Joint(object):
     """
     joint class
     """
-    def __init__(self, angle, moment, power, force):
+    def __init__(self, angle_data: dict = None, moment = None, power = None, force = None):
         """
         Holds the joint data form the model output
         :param angle: angles
@@ -59,10 +59,13 @@ class Joint(object):
         :param force: forces
         """
 
-        self._angle = angle
+        self._angle = Angle(angle_data=angle_data)
         self._moment = moment
         self._power = power
         self._force = force
+
+        self._sara = None
+        self._score = None
 
     @property
     def angle(self):
@@ -92,19 +95,19 @@ class Joint(object):
         """
         return self._moment
 
-    @angle.setter
-    def angle(self, value):
-        self._angle = value
+    # @angle.setter
+    # def angle(self, value):
+    #     self._angle = value
 
-    @power.setter
-    def power(self, value):
-        self._power = value
+    # @power.setter
+    # def power(self, value):
+    #     self._power = value
 
-    @force.setter
-    def force(self, value):
-        self._force = value
+    # @force.setter
+    # def force(self, value):
+    #     self._force = value
 
-    @moment.setter
-    def moment(self, value ):
-        self._moment = value
+    # @moment.setter
+    # def moment(self, value ):
+    #     self._moment = value
 
