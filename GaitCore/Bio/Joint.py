@@ -43,14 +43,16 @@
 # */
 # //==============================================================================
 
+from GaitCore.Bio.Sara import Sara
+from GaitCore.Bio.Score import Score
 from GaitCore.Core.Angle import Angle
 
 
-class Joint(object):
+class Joint():
     """
     joint class
     """
-    def __init__(self, angle_data: dict = None, moment = None, power = None, force = None):
+    def __init__(self, name: str, angle_data: dict = None, moment = None, power = None, force = None):
         """
         Holds the joint data form the model output
         :param angle: angles
@@ -59,6 +61,7 @@ class Joint(object):
         :param force: forces
         """
 
+        self._name = name
         self._angle = Angle(angle_data=angle_data)
         self._moment = moment
         self._power = power
@@ -66,6 +69,14 @@ class Joint(object):
 
         self._sara = None
         self._score = None
+
+    @property
+    def name(self):
+        """
+        Returns:
+            str: Name of the joint
+        """
+        return self._name
 
     @property
     def angle(self):
@@ -95,19 +106,18 @@ class Joint(object):
         """
         return self._moment
 
-    # @angle.setter
-    # def angle(self, value):
-    #     self._angle = value
+    @property
+    def score(self):
+        return self._score
 
-    # @power.setter
-    # def power(self, value):
-    #     self._power = value
+    @score.setter
+    def score(self, score_obj: Score):
+        self._score = score_obj
 
-    # @force.setter
-    # def force(self, value):
-    #     self._force = value
+    @property
+    def sara(self):
+        return self._sara
 
-    # @moment.setter
-    # def moment(self, value ):
-    #     self._moment = value
-
+    @sara.setter
+    def sara(self, sara_obj: Sara):
+        self._sara = sara_obj
