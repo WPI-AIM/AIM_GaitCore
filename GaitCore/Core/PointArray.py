@@ -49,9 +49,9 @@
 import GaitCore.Core.Point as Point
 import numpy as np
 
-class PointArray(object):
+class PointArray():
 
-    def __init__(self,x,y,z):
+    def __init__(self, x: list = [], y: list = [], z: list = []):
         self._x = x
         self._y = y
         self._z = z

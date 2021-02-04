@@ -106,6 +106,10 @@ class Joint():
         """
         return self._moment
 
+    @moment.setter
+    def moment(self, data: list):
+        self._moment = data
+
     @property
     def score(self):
         return self._score

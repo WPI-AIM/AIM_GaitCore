@@ -8,8 +8,10 @@ class Score:
 
         # Create class-wide variables
         self._data = score_data
-        self.poses = []
         self.units = ""
+        self.x_array = []
+        self.y_array = []
+        self.z_array = []
 
         # Analyze the data imported
         
@@ -28,7 +30,10 @@ class Score:
         for (x, y, z) in zip(self._data.get("X", {}).get("data"),
                              self._data.get("Y", {}).get("data"),
                              self._data.get("Z", {}).get("data")):
-            self.poses.append([x, y, z])
+            self.x_array.append(x)
+            self.y_array.append(y)
+            self.z_array.append(z)
+        
         
         # Check to make sure all units are the same, and set units
         if self._data.get("X", {}).get('unit') == self._data.get("Y", {}).get('unit') and \
