@@ -88,6 +88,15 @@ class PointArray():
         get an numpy as array
         """
         return np.array([self.x,self.y,self.z])
+    
+    def toPointList(self):
+        """
+        returns a list of type GaitCore.Core.Point
+        """
+        l = []
+        for i in range(0, len(self._x)):
+            l.append(self.get(i))
+        return l
 
     def __add__(self, other):
         """
