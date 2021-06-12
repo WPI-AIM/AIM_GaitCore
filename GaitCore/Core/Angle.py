@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 # //==============================================================================
 # /*
 #     Software License Agreement (BSD License)
@@ -37,91 +37,88 @@
 #     POSSIBILITY OF SUCH DAMAGE.
 
 #     \author    <http://www.aimlab.wpi.edu>
-#     \author    <nagoldfarb@wpi.edu>
-#     \author    Nathaniel Goldfarb
+#     \author    <alextac98@gmail.com>
+#     \author    Alex Tacescu
 #     \version   0.1
 # */
 # //==============================================================================
 
-from GaitCore.Bio.Sara import Sara
-from GaitCore.Bio.Score import Score
-from GaitCore.Core.Angle import Angle
-
-
-class Joint():
+class Angle():
     """
-    joint class
+    Angle class
     """
-    def __init__(self, name: str, angle_data: dict = None, moment = None, power = None, force = None):
-        """
-        Holds the joint data form the model output
-        :param angle: angles
-        :param moment: moments
-        :param power: power
-        :param force: forces
-        """
 
-        self._name = name
-        self._angle = Angle(angle_data=angle_data)
-        self._moment = moment
-        self._power = power
-        self._force = force
+    def __init__(self, angle_data: dict = None):
+        
+        self._rx = angle_data.get('RX', {}).get('data', [])
+        self._ry = angle_data.get('RY', {}).get('data', [])
+        self._rz = angle_data.get('RZ', {}).get('data', [])
 
-        self._sara = None
-        self._score = None
+        self._tx = angle_data.get('TX', {}).get('data', [])
+        self._ty = angle_data.get('TY', {}).get('data', [])
+        self._tz = angle_data.get('TZ', {}).get('data', [])
 
-    @property
-    def name(self):
-        """
-        Returns:
-            str: Name of the joint
-        """
-        return self._name
+        # Set rotational units
+        rot_units =    [angle_data.get('RX', {}).get('unit'),
+                        angle_data.get('RY', {}).get('unit'),
+                        angle_data.get('RZ', {}).get('unit')]
 
-    @property
-    def angle(self):
-        """
-        get the angles for the joint
-        """
-        return self._angle
+        if not self.check_units(unit_list=rot_units):
+            # TODO: Throw error
+            print("Units not the same")
+            self._rot_unit = "units_not_same"
+        else:
+            self._rot_unit = rot_units[0]
 
-    @property
-    def power(self):
-        """
-        get the power of the joint
-        """
-        return self._power
+        # Set translational units
+        trans_units =  [angle_data.get('TX', {}).get('unit'),
+                        angle_data.get('TY', {}).get('unit'),
+                        angle_data.get('TZ', {}).get('unit')]
+
+        if not self.check_units(unit_list=trans_units):
+            # TODO: Throw error
+            print("Units not the same")
+            self._trans_unit = "units_not_same"
+        else:
+            self._trans_unit = trans_units[0]
 
     @property
-    def force(self):
-        """
-        get the forces of the joint
-        """
-        return self._force
+    def rot_unit(self):
+        return self._rot_unit
 
     @property
-    def moment(self):
-        """
-        get the moment of the joint
-        """
-        return self._moment
-
-    @moment.setter
-    def moment(self, data: list):
-        self._moment = data
+    def trans_unit(self):
+        return self._trans_unit
 
     @property
-    def score(self):
-        return self._score
-
-    @score.setter
-    def score(self, score_obj: Score):
-        self._score = score_obj
+    def rx(self):
+        return self._rx
 
     @property
-    def sara(self):
-        return self._sara
+    def ry(self):
+        return self._ry
 
-    @sara.setter
-    def sara(self, sara_obj: Sara):
-        self._sara = sara_obj
+    @property
+    def rz(self):
+        return self._rz
+
+    @property
+    def tx(self):
+        return self._tx
+
+    @property
+    def ty(self):
+        return self._ty
+
+    @property
+    def tz(self):
+        return self._tz
+
+    def check_units(self, unit_list:list):
+        unit_tmp = unit_list[0]
+        for unit in unit_list:
+            if unit != unit_tmp:
+                # TODO: Throw error
+                return False
+
+        return True
