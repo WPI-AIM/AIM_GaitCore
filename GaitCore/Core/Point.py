@@ -123,7 +123,7 @@ def distance(point1, point2):
 
 def point_to_vector(point):
     """Returns a vectorized representation of a Point object. The vector is of the form [[x], [y], [z]]"""
-    return [[point.x], [point.y], [point.z]]
+    return  np.array([[point.x], [point.y], [point.z]])
 
 def vector_to_point(vector):
     """Returns a Point object from its vector representation."""
