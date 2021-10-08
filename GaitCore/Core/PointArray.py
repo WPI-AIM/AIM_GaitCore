@@ -49,15 +49,9 @@
 import GaitCore.Core.Point as Point
 import numpy as np
 
-class PointArray(object):
+class PointArray():
 
-    def __init__(self,x,y,z):
-        """
-
-        :param x: list of points
-        :param y: list of points
-        :param z: list of points
-        """
+    def __init__(self, x: list = [], y: list = [], z: list = []):
         self._x = x
         self._y = y
         self._z = z
@@ -128,6 +122,15 @@ class PointArray(object):
         get an numpy as array
         """
         return np.array([self.x,self.y,self.z])
+    
+    def toPointList(self):
+        """
+        returns a list of type GaitCore.Core.Point
+        """
+        l = []
+        for i in range(0, len(self._x)):
+            l.append(self.get(i))
+        return l
 
     def __add__(self, other):
         """

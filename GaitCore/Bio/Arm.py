@@ -47,7 +47,7 @@
 
 
 
-class Arn(object):
+class Arm(object):
     """
     Hold the joints of a leg
     """
