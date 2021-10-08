@@ -53,6 +53,15 @@ class Point(object):
         self._y = y
         self._z = z
 
+
+    @classmethod
+    def from_points(cls, P1, P2):
+        return cls(P2[0] - P1[0], P2[1] - P1[1], P2[1] - P1[1])
+
+    @classmethod
+    def new_point(cls):
+        return cls(0, 0, 0)
+
     @property
     def x(self):
         return self._x
@@ -108,8 +117,23 @@ class Point(object):
     def __rmul__(self, other):
        return self.__mul__(other)
 
+
+    def __truediv__(self, other):
+        x = self.x / other
+        y = self.y / other
+        z = self.z / other
+
+        return Point(x, y, z)
+
+    def __floordiv__(self, other):
+        x = self.x // other
+        y = self.y // other
+        z = self.z // other
+
+        return Point(x, y, z)
+
     def __str__(self):
-        return " X: " + str(self.x) + " Y: " + str(self.y) + " Z: " + str(self.z)
+            return " X: " + str(self.x) + " Y: " + str(self.y) + " Z: " + str(self.z)
 
     def toarray(self):
         return np.array((self.x, self.y, self.z)).reshape((-1,1))
@@ -132,3 +156,6 @@ def vector_to_point(vector):
 
 
 
+if __name__ == '__main__':
+    my_point= Point.new_point()
+    print(my_point/2)

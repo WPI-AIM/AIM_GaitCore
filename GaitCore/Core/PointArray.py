@@ -80,7 +80,7 @@ class PointArray(object):
         x = []
         y = []
         z = []
-        for p in point_array
+        for p in point_array:
             x.append(p.x)
             y.append(p.y)
             z.append(p.z)
@@ -90,7 +90,7 @@ class PointArray(object):
         """
 
         :param point: Point to append
-        :return: 
+        :return:
         """
         self._x.append(point.x)
         self._y.append(point.y)
