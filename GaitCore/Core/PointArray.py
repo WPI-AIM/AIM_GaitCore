@@ -56,6 +56,40 @@ class PointArray():
         self._y = y
         self._z = z
 
+    @classmethod
+    def init_point_array(cls):
+        """
+        Blank init to creat an PointArray object
+        :return: PointArray
+        """
+        return cls(x=[], y=[],z=[])
+
+    @classmethod
+    def from_point_array(cls,point_array):
+        """
+
+        :param point_array: a list of Point.Point objects
+        :return: PointArray
+        """
+        x = []
+        y = []
+        z = []
+        for p in point_array:
+            x.append(p.x)
+            y.append(p.y)
+            z.append(p.z)
+        return cls(x=x, y=y,z=z)
+
+    def append(self,point):
+        """
+
+        :param point: Point to append
+        :return:
+        """
+        self._x.append(point.x)
+        self._y.append(point.y)
+        self._z.append(point.z)
+
     @property
     def x(self):
         return self._x
@@ -178,3 +212,11 @@ class PointArray():
             return point
         else:
             raise StopIteration
+
+
+
+if __name__ == '__main__':
+    p =PointArray.init_point_array()
+    p.append(Point.Point(5,5,5))
+    p.append(Point.Point(5,5,5))
+    print(p[1])
