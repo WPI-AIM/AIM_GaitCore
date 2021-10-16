@@ -34,7 +34,7 @@ class Sara:
             self.y_array.append(y)
             self.z_array.append(z)
 
-        self._angle = core.PointArray.PointArray(self.x_array,
+        self._location = core.PointArray.PointArray(self.x_array,
                                                  self.y_array,
                                                  self.z_array)
 
@@ -47,5 +47,6 @@ class Sara:
             # TODO: Throw error
             print("Error in Sara: not all units are the same!")
 
-    def angle(self):
-        return self._angle
+    @property
+    def location(self):
+        return self._location
