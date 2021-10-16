@@ -33,7 +33,11 @@ class Score:
             self.x_array.append(x)
             self.y_array.append(y)
             self.z_array.append(z)
-        
+
+        self._location = core.PointArray.PointArray(self.x_array,
+                                                self.y_array,
+                                                self.z_array)
+
         
         # Check to make sure all units are the same, and set units
         if self._data.get("X", {}).get('unit') == self._data.get("Y", {}).get('unit') and \
@@ -42,4 +46,9 @@ class Score:
         else:
             # TODO: Throw error
             print("Error in Score: not all units are the same!")
+
+    @property
+    def location(self):
+        return self._location
+
 
