@@ -213,10 +213,13 @@ class PointArray():
         else:
             raise StopIteration
 
+    def __len__(self):
+        return len(self._x)
+
 
 
 if __name__ == '__main__':
     p =PointArray.init_point_array()
     p.append(Point.Point(5,5,5))
     p.append(Point.Point(5,5,5))
-    print(p[1])
+    print( len(p) )
