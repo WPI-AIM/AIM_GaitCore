@@ -62,7 +62,7 @@ class Joint():
         """
 
         self._name = name
-        self._angle = Angle(angle_data=angle_data)
+        self._angle = angle_data
         self._moment = moment
         self._power = power
         self._force = force
