@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 import itertools
-
+from GaitCore import Core as core
 class Sara:
 
     def __init__(self, sara_data):

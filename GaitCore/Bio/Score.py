@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 import itertools
-
+from GaitCore import Core as core
 class Score:
 
     def __init__(self, score_data):
