@@ -135,6 +135,10 @@ class Point(object):
     def __str__(self):
             return " X: " + str(self.x) + " Y: " + str(self.y) + " Z: " + str(self.z)
 
+
+    def __abs__(self):
+        return Point(abs(self.x), abs(self.y), abs(self.z))
+
     def toarray(self):
         return np.array((self.x, self.y, self.z)).reshape((-1,1))
 

@@ -122,7 +122,7 @@ class PointArray():
         get an numpy as array
         """
         return np.array([self.x,self.y,self.z])
-    
+
     def toPointList(self):
         """
         returns a list of type GaitCore.Core.Point
@@ -137,16 +137,12 @@ class PointArray():
         over ride to add points
         """
         x = []
-        for i in range(len(self.x)):
-            x.append(self.x + other.x)
-
         y = []
-        for i in range(len(self.y)):
-            x.append(self.y + other.y)
-
         z = []
-        for i in range(len(self.z)):
-            x.append(self.z + other.z)
+        for i in range(len(self.x)):
+            x.append(self.x[i] + other.x[i])
+            y.append(self.y[i] + other.y[i])
+            z.append(self.z[i] + other.z[i])
 
         return PointArray(x, y, z)
 
@@ -155,16 +151,12 @@ class PointArray():
         over ride to subtact points
         """
         x = []
-        for i in range(len(self.x)):
-            x.append(self.x - other.x)
-
         y = []
-        for i in range(len(self.y)):
-            x.append(self.y - other.y)
-
         z = []
-        for i in range(len(self.z)):
-            x.append(self.z - other.z)
+        for i in range(len(self.x)):
+            x.append(self.x[i] - other.x[i])
+            y.append(self.y[i] - other.y[i])
+            z.append(self.z[i] - other.z[i])
 
         return PointArray(x, y, z)
 
@@ -173,16 +165,12 @@ class PointArray():
         over ride to mul points
         """
         x = []
-        for i in range(len(self.x)):
-            x.append(self.x * other.x)
-
         y = []
-        for i in range(len(self.y)):
-            x.append(self.y * other.y)
-
         z = []
-        for i in range(len(self.z)):
-            x.append(self.z * other.z)
+        for i in range(len(self.x)):
+            x.append(self.x[i] * other.x[i])
+            y.append(self.y[i] * other.y[i])
+            z.append(self.z[i] * other.z[i])
 
         return PointArray(x, y, z)
 
@@ -215,6 +203,18 @@ class PointArray():
 
     def __len__(self):
         return len(self._x)
+
+
+    def __abs__(self):
+        x = []
+        y = []
+        z = []
+        for i in range(len(self.x)):
+            x.append(abs(self.x[i]))
+            y.append(abs(self.y[i]))
+            z.append(abs(self.z[i]))
+
+        return PointArray(x, y, z)
 
 
 
