@@ -170,7 +170,12 @@ def vector_to_point(vector):
     """Returns a Point object from its vector representation."""
     return Point(vector[0][0], vector[1][0], vector[2][0])
 
-
+def cross(point1, point2):
+    """Cross product wrapper """
+    v1 = point1.toarray()
+    v2 = point2.toarray()
+    v3 = np.cross(p1,p2)
+    return Point.from_array(v3)
 
 
 if __name__ == '__main__':
