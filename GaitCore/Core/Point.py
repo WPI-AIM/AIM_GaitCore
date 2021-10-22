@@ -62,6 +62,11 @@ class Point(object):
     def new_point(cls):
         return cls(0, 0, 0)
 
+    @classmethod
+    def from_array(cls, arr):
+        return cls(arr[0], arr[1], arr[2])
+
+
     @property
     def x(self):
         return self._x
