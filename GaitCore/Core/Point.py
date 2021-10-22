@@ -66,11 +66,9 @@ class Point(object):
     def from_array(cls, arr):
         return cls(arr[0], arr[1], arr[2])
 
-    def normilize(self):
+    def get_unit_vector(self):
         mag = self.get_magnitude()
-        self.x = self.x/mag
-        self.y = self.y/mag
-        self.z = self.z/mag
+        return Point(self.x,self.y, self.z)/mag
 
     def get_magnitude(self):
         return np.sqrt( self.x**2 + self.y**2 + self.z**2 )
@@ -180,4 +178,6 @@ def cross(point1, point2):
 
 if __name__ == '__main__':
     my_point= Point.new_point()
-    print(my_point/2)
+    arr = np.array([5,4,3])
+    p = Point.from_array(arr)
+    print(p.get_unit_vector())
