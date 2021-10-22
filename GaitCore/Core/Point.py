@@ -66,6 +66,14 @@ class Point(object):
     def from_array(cls, arr):
         return cls(arr[0], arr[1], arr[2])
 
+    def normilize(self):
+        mag = self.get_magnitude()
+        self.x = self.x/mag
+        self.y = self.y/mag
+        self.z = self.z/mag
+
+    def get_magnitude(self):
+        return np.sqrt( self.x**2 + self.y**2 + self.z**2 )
 
     @property
     def x(self):
