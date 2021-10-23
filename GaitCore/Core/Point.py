@@ -170,14 +170,13 @@ def vector_to_point(vector):
 
 def cross(point1, point2):
     """Cross product wrapper """
-    v1 = point1.toarray()
-    v2 = point2.toarray()
+    v1 = np.squeeze(point1.toarray())
+    v2 = np.squeeze(point2.toarray())
     v3 = np.cross(v1,v2)
     return Point.from_array(v3)
 
 
 if __name__ == '__main__':
-    my_point= Point.new_point()
-    arr = np.array([5,4,3])
-    p = Point.from_array(arr)
-    print(p.get_unit_vector())
+    p1 = Point(5,5,5)
+    p2 = Point(2,2.1,3.2)
+    print(cross(p1,p2))
