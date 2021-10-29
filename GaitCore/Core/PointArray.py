@@ -175,7 +175,16 @@ class PointArray():
         return PointArray(x, y, z)
 
     def __rmul__(self, other):
-        return self.__mul__(other)
+        x = []
+        y = []
+        z = []
+        for i in range(len(self.x)):
+            x.append(self.x[i] * other)
+            y.append(self.y[i] * other)
+            z.append(self.z[i] * other)
+
+        return PointArray(x, y, z)
+
 
     def __str__(self):
         return " X: " + str(self.x) + " Y: " + str(self.y) + " Z: " + str(self.z)
@@ -222,4 +231,5 @@ if __name__ == '__main__':
     p =PointArray.init_point_array()
     p.append(Point.Point(5,5,5))
     p.append(Point.Point(5,5,5))
-    print( len(p) )
+
+    print( 5*p)
