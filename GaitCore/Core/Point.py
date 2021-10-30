@@ -181,6 +181,12 @@ def cross(point1, point2):
     return Point.from_array(v3)
 
 
+
+def dot(point1, point2):
+    v1 = np.squeeze(point1.toarray())
+    v2 = np.squeeze(point2.toarray())
+    return np.dot(v1,v2)
+
 if __name__ == '__main__':
     p1 = Point(5,5,5)
     p2 = Point(2,2.1,3.2)
