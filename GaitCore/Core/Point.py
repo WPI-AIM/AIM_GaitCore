@@ -143,9 +143,14 @@ class Point(object):
 
         return Point(x, y, z)
 
+
+    def dot(self, other):
+        v1 = np.squeeze(other.toarray())
+        v2 = np.squeeze(self.toarray())
+        return np.dot(v1,v2)
+
     def __str__(self):
             return " X: " + str(self.x) + " Y: " + str(self.y) + " Z: " + str(self.z)
-
 
     def __abs__(self):
         return Point(abs(self.x), abs(self.y), abs(self.z))
@@ -180,3 +185,4 @@ if __name__ == '__main__':
     p1 = Point(5,5,5)
     p2 = Point(2,2.1,3.2)
     print(cross(p1,p2))
+    print(p2.dot(p1))
