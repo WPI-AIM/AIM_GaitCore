@@ -106,6 +106,17 @@ class Point(object):
         z = self.z + other.z
         return Point(x, y, z)
 
+    def __radd__(self, other):
+
+        x = self.x + other
+        y = self.y + other
+        z = self.z + other
+
+        return Point(x, y, z)
+
+    def __rsub__(self, other):
+        return self.__radd__(-other)
+
     def __sub__(self, other):
         """
         over ride to subtact points
