@@ -174,7 +174,8 @@ def distance(point1, point2):
     """
     get the distance between two points
     """
-    return np.sqrt(np.sum(np.power((point1 - point2).toarray(), 2)))
+    ans = np.sum(np.power((point1 - point2).toarray(), 2))
+    return np.sqrt(float(ans) )
 
 def point_to_vector(point):
     """Returns a vectorized representation of a Point object. The vector is of the form [[x], [y], [z]]"""
