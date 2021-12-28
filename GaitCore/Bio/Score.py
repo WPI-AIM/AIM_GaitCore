@@ -52,3 +52,15 @@ class Score:
         return self._location
 
 
+    @property
+    def x(self):
+        return self._location.x
+
+    @property
+    def y(self):
+        return self._location.y
+
+    @property
+    def z(self):
+        return self._location.z
+
