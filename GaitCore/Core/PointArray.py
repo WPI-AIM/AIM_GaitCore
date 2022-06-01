@@ -64,6 +64,28 @@ class PointArray():
         """
         return cls(x=[], y=[],z=[])
 
+
+    @classmethod
+    def from_array(cls, arr, dim=1):
+        """
+        Blank init to creat an numpy object
+        :return: PointArray
+        """
+        x = []
+        y = []
+        z = []
+
+        if dim == 0 and arr.shape[1] == 3:
+            x = arr[:, 0]
+            y = arr[:, 1]
+            z = arr[:, 2]
+        elif dim == 1 and arr.shape[0] == 3:
+            x = arr[0, :]
+            y = arr[1, :]
+            z = arr[2, :]
+
+        return cls(x=x, y=y,z=z)
+
     @classmethod
     def from_point_array(cls,point_array):
         """
@@ -228,8 +250,8 @@ class PointArray():
 
 
 if __name__ == '__main__':
-    p =PointArray.init_point_array()
-    p.append(Point.Point(5,5,5))
-    p.append(Point.Point(5,5,5))
+    arr = np.array([[1, 2, 3,4,5], [4, 5, 6,7,8], [7, 8, 9,10,11]])
+    p =PointArray.from_array(arr,1)
 
-    print( 5*p)
+
+    print(p)
